@@ -1,0 +1,90 @@
+title: "How the month-end close moves from entries to locked results"
+eyebrow: "Finance and procurement · Month-end close"
+footer:
+  bold: "Results are approved before the period locks."
+  text: "Every account is reconciled and every variance explained first."
+teams:
+  - id: units
+    name: "Business units"
+    note: "Submit accruals and inputs"
+  - id: gl
+    name: "General ledger"
+    note: "Posts and reconciles"
+  - id: controller
+    name: "Financial controller"
+    note: "Reviews and explains"
+  - id: director
+    name: "Finance director"
+    note: "Approves and releases"
+  - id: system
+    name: "Finance system"
+    note: "Holds the period"
+steps:
+  - team: units
+    phase: "Prepare"
+    title: "Submit accruals"
+    hands_over: "Accruals and inputs"
+    what: "Business units submit accruals, prepayments and other month-end inputs by the cut-off."
+    accepted_when: "Every unit submits by the cut-off."
+  - team: gl
+    phase: "Prepare"
+    title: "Post journals"
+    hands_over: "Posted journals"
+    what: "The ledger team posts accruals, allocations and adjustments."
+    accepted_when: "Every journal has support and an approver."
+  - team: controller
+    phase: "Prepare"
+    title: "Reconcile accounts"
+    hands_over: "Reconciled accounts"
+    what: "The controller checks the balance sheet reconciliations."
+    accepted_when: "Every key account reconciled; differences explained."
+  - team: gl
+    phase: "Review"
+    title: "Run trial balance"
+    hands_over: "Trial balance"
+    what: "The ledger team runs the trial balance and draft results."
+    accepted_when: "Trial balance balances."
+  - team: controller
+    phase: "Review"
+    title: "Review variances"
+    hands_over: "Variance commentary"
+    what: "The controller compares results with budget and last month and explains each variance."
+    accepted_when: "Every variance over threshold explained."
+  - team: director
+    phase: "Review"
+    title: "Approve results"
+    hands_over: "Approved results"
+    decision: "APPROVED"
+    what: "The finance director approves the month's results."
+    accepted_when: "Approval recorded with a date."
+  - team: director
+    phase: "Report"
+    title: "Release reports"
+    hands_over: "Management reports"
+    to: "Finance system, to lock"
+    what: "The finance director releases the management reports."
+    accepted_when: "Reports sent to every recipient."
+  - team: system
+    phase: "Report"
+    title: "Lock period"
+    hands_over: "Locked period"
+    decision: "LOCKED"
+    what: "The period is locked so no further entries can post to it."
+    accepted_when: "Period locked; next period open."
+loops:
+  - from: 5
+    to: 2
+    label: "Correct entries"
+intro:
+  heading: "Post, reconcile, review, approve, lock"
+  paragraphs:
+    - "Every card is one team's step. The line under its title is what that team hands over."
+    - "Results are approved only when every variance is explained."
+summary:
+  heading: "A clean close, every month"
+  points:
+    - "Business units meet a fixed cut-off."
+    - "Reconciliations come before the trial balance review."
+    - "Unexplained variances send entries back for correction."
+    - "The period locks only after approval."
+  note: "Cut-off dates and thresholds are set by each organisation."

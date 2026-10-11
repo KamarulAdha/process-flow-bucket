@@ -1,0 +1,122 @@
+title: "How a field development plan moves from concept to sanction"
+eyebrow: "Oil & Gas · Field development"
+footer:
+  bold: "No plan proceeds without both approvals."
+  text: "The concept is approved before the full plan is written, so effort goes into one option."
+teams:
+  - id: operator
+    name: "Operator"
+    note: "Prepares and submits the plan"
+  - id: technical
+    name: "Technical review"
+    note: "Subsurface, facilities and HSE"
+  - id: commercial
+    name: "Economics review"
+    note: "Costs, fiscal terms and value"
+  - id: management
+    name: "Senior management"
+    note: "Approves concept and plan"
+  - id: registry
+    name: "Asset registry"
+    note: "System of record for field data"
+steps:
+  - team: operator
+    phase: "Concept"
+    title: "Submit concept"
+    hands_over: "Concept selection report"
+    what: "The operator compares development options and recommends one, with reserves, cost and schedule ranges."
+    accepted_when: "Every option is compared on the same basis."
+  - team: technical
+    phase: "Concept"
+    title: "Review concept"
+    hands_over: "Concept review findings"
+    what: "Technical reviewers test the reserves basis, facilities choice and HSE risks of the recommended option."
+    accepted_when: "Each finding is rated and has an owner."
+  - team: management
+    phase: "Concept"
+    title: "Approve concept"
+    hands_over: "Approved concept"
+    to: "Operator, for the full plan"
+    decision: "APPROVED"
+    what: "Senior management approves the recommended concept or sends it back for re-selection."
+    accepted_when: "Approval recorded with conditions and a date."
+  - team: operator
+    phase: "Plan"
+    title: "Submit full plan"
+    hands_over: "Field development plan"
+    what: "The operator writes the full plan on the approved concept: reservoir, wells, facilities, cost, schedule and decommissioning."
+    list:
+      title: "The plan holds"
+      items:
+        - "Reservoir and production profile"
+        - "Well and facilities design"
+        - "Cost estimate and schedule"
+        - "HSE and decommissioning basis"
+    accepted_when: "Every section is complete and the concept conditions are closed."
+  - team: technical
+    phase: "Plan"
+    title: "Technical review"
+    hands_over: "Technical assessment"
+    what: "Reviewers check the plan against the approved concept and field standards."
+    accepted_when: "No open critical findings."
+  - team: commercial
+    phase: "Plan"
+    title: "Economic review"
+    hands_over: "Economic assessment"
+    what: "Economists run the plan through the fiscal terms and test cost and price sensitivities."
+    accepted_when: "Value holds under the agreed sensitivity cases."
+  - team: management
+    phase: "Plan"
+    title: "Approve plan"
+    hands_over: "Approved development plan"
+    to: "Operator, for sanction"
+    decision: "APPROVED"
+    what: "Senior management approves the plan, with conditions, or returns it for revision."
+    accepted_when: "Approval recorded with conditions and a date."
+  - team: operator
+    phase: "Sanction"
+    title: "Sanction project"
+    hands_over: "Final investment decision"
+    decision: "SANCTIONED"
+    what: "The operator takes the final investment decision and starts execution."
+    accepted_when: "Investment decision recorded and contracts released."
+  - team: registry
+    phase: "Sanction"
+    title: "Record field data"
+    hands_over: "Field record"
+    to: "Technical review, for look-back"
+    what: "Approved reserves, profiles and commitments go into the registry as the baseline."
+    accepted_when: "Baseline matches the approved plan."
+  - team: technical
+    phase: "Look-back"
+    title: "Look-back review"
+    hands_over: "Lessons and variances"
+    what: "After first production, reviewers compare actual results with the approved plan."
+    accepted_when: "Every variance over the threshold is explained."
+  - team: management
+    phase: "Look-back"
+    title: "Close review"
+    hands_over: "Closed look-back"
+    decision: "CLOSED"
+    what: "Senior management accepts the look-back and assigns follow-up actions."
+    accepted_when: "Actions assigned, with owners and dates."
+loops:
+  - from: 3
+    to: 1
+    label: "Re-select concept"
+  - from: 7
+    to: 4
+    label: "Returned: revise plan"
+intro:
+  heading: "Two approvals before any money is committed"
+  paragraphs:
+    - "Every card is one team's step. The line under its title is what that team hands over."
+    - "The concept is approved first. The full plan is then written on that concept alone."
+summary:
+  heading: "Approve the idea, then the plan, then check the result"
+  points:
+    - "The operator prepares; reviewers test; senior management decides."
+    - "Concept approval stops effort on options that will not proceed."
+    - "Technical and economic reviews both run before plan approval."
+    - "The look-back compares results with the approved plan."
+  note: "Review thresholds and conditions are set by each organisation."

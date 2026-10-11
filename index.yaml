@@ -1,0 +1,33 @@
+# The canvas reads this list. Add a line when you add a process file.
+# A process file lives at <domain id>/<process id>.yaml
+# Domains and processes appear in the pickers in this order.
+# Ids use only a-z, 0-9 and -.
+
+domains:
+  - id: oil-gas
+    name: "Oil & Gas"
+    processes:
+      - id: contract-continuation
+        name: "Contract continuation"
+      - id: field-development
+        name: "Field development plan"
+      - id: work-programme
+        name: "Work programme and budget"
+      - id: decommissioning
+        name: "Decommissioning"
+
+  - id: finance
+    name: "Finance and procurement"
+    processes:
+      - id: procure-to-pay
+        name: "Procure to pay"
+      - id: month-end-close
+        name: "Month-end close"
+
+  - id: project-delivery
+    name: "Project delivery"
+    processes:
+      - id: engagement-handover
+        name: "Engagement handover"
+      - id: change-control
+        name: "Change control"

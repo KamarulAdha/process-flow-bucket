@@ -1,0 +1,99 @@
+title: "How a change request moves from idea to accepted change"
+eyebrow: "Project delivery · Change control"
+footer:
+  bold: "No change is built before it is approved."
+  text: "Every change is analysed and estimated before the change board decides."
+teams:
+  - id: owner
+    name: "Business owner"
+    note: "Raises and accepts changes"
+  - id: pm
+    name: "Project manager"
+    note: "Logs, tracks and re-baselines"
+  - id: ba
+    name: "Business analyst"
+    note: "Analyses impact"
+  - id: tech
+    name: "Technical lead"
+    note: "Estimates and builds"
+  - id: board
+    name: "Change board"
+    note: "Approves or rejects"
+steps:
+  - team: owner
+    phase: "Raise"
+    title: "Raise request"
+    hands_over: "Change request"
+    what: "The business owner describes the change, the reason and the benefit."
+    accepted_when: "The request states what changes and why."
+  - team: pm
+    phase: "Raise"
+    title: "Log and triage"
+    hands_over: "Logged request"
+    what: "The project manager logs the request, sets its priority and assigns analysis."
+    accepted_when: "Request has an ID, a priority and an owner."
+  - team: ba
+    phase: "Raise"
+    title: "Analyse impact"
+    hands_over: "Impact analysis"
+    what: "The BA traces the change to requirements, users and other systems."
+    accepted_when: "Every affected requirement is listed."
+  - team: tech
+    phase: "Raise"
+    title: "Estimate effort"
+    hands_over: "Effort and risk estimate"
+    to: "Change board"
+    what: "The tech lead estimates effort, schedule impact and technical risk."
+    accepted_when: "Estimate has a range and stated assumptions."
+  - team: board
+    phase: "Decide"
+    title: "Decide change"
+    hands_over: "Change decision"
+    to: "Project manager"
+    decision: "APPROVED"
+    what: "The change board approves, defers or rejects the change, weighing benefit against cost and risk."
+    accepted_when: "Decision recorded with a reason."
+  - team: pm
+    phase: "Decide"
+    title: "Update baseline"
+    hands_over: "Revised plan"
+    to: "Technical lead"
+    what: "The project manager updates scope, schedule and budget to include the change."
+    accepted_when: "Revised baseline shared with every team."
+  - team: tech
+    phase: "Deliver"
+    title: "Build change"
+    hands_over: "Built change"
+    what: "The team builds and tests the change in the next planned release."
+    accepted_when: "Tests pass for every affected requirement."
+  - team: ba
+    phase: "Deliver"
+    title: "Verify change"
+    hands_over: "Verified change"
+    what: "The BA checks the change against the approved request."
+    accepted_when: "Change matches the request and the impact analysis."
+  - team: owner
+    phase: "Deliver"
+    title: "Accept change"
+    hands_over: "Accepted change"
+    to: "Project manager, to close"
+    decision: "ACCEPTED"
+    what: "The business owner confirms the change delivers the stated benefit."
+    accepted_when: "Owner signs off; request closed."
+loops:
+  - from: 5
+    to: 3
+    label: "More analysis needed"
+intro:
+  heading: "Analyse, decide, then build"
+  paragraphs:
+    - "Every card is one team's step. The line under its title is what that team hands over."
+    - "The change board sees the impact and the estimate before it decides."
+summary:
+  heading: "One door for every change"
+  points:
+    - "Every change is logged before anyone works on it."
+    - "Impact and effort are known before the decision."
+    - "An approved change updates the baseline first."
+    - "The business owner accepts the change, not the build team."
+  note: "Thresholds for board review are set by each project."

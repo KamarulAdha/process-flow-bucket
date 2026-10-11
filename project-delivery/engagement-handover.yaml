@@ -1,0 +1,153 @@
+title: "How an engagement moves between teams"
+eyebrow: "Project delivery · Engagement model"
+footer:
+  bold: "No reporting line changes."
+  text: "Every team keeps its own manager. Solution strategy signs no decision on its own."
+teams:
+  - id: client
+    name: "Client"
+    note: "Sponsor and users"
+  - id: account
+    name: "Account manager"
+    note: "Owns the account"
+  - id: strategy
+    name: "Solution strategy"
+    note: "Shapes the solution"
+  - id: programme
+    name: "Programme manager"
+    note: "Approves scope and release"
+  - id: ba
+    name: "Business analyst"
+    note: "Writes the BRS"
+  - id: pmo
+    name: "PMO"
+    note: "Plans and delegates"
+  - id: tech
+    name: "Technical teams"
+    note: "Tech lead and developers"
+steps:
+  - team: account
+    phase: "Win"
+    title: "Hand over client"
+    hands_over: "Client introduction"
+    what: "The account manager introduces the solution strategist to the client and keeps the account."
+    accepted_when: "A named sponsor, and the need in the client's own words."
+  - team: strategy
+    phase: "Win"
+    title: "First pass"
+    hands_over: "First-pass notes"
+    to: "Client and BA, for validation"
+    what: "The solution strategist meets the client for a first pass: the problem, the users and what success would look like."
+    accepted_when: "The client agrees a validation session, with the BA attending."
+  - team: client
+    phase: "Discover"
+    title: "Validation session"
+    hands_over: "Validated pain points"
+    what: "The strategist and the BA run the session. The client confirms the pain points; the BA captures them for the BRS."
+    accepted_when: "The client confirms the pain points and the success metrics."
+  - team: strategy
+    phase: "Discover"
+    title: "Solution blueprint"
+    hands_over: "Solution blueprint"
+    to: "Programme manager"
+    what: "The strategist turns the validated pain points into a blueprint for the programme manager to approve."
+    list:
+      title: "The blueprint holds"
+      items:
+        - "Solution outline and architecture"
+        - "Minimal, moderate and full tiers"
+        - "Effort range for each tier"
+        - "MVP definition: what it must prove"
+        - "Proof of concept, where it cuts risk"
+    accepted_when: "Tiers, effort ranges and success metrics are stated."
+  - team: programme
+    phase: "Discover"
+    title: "Approve or re-scope"
+    hands_over: "Go-ahead for the BRS"
+    decision: "APPROVED"
+    what: "The programme manager approves the blueprint or sends it back for re-scoping. A technical lead confirms the effort."
+    accepted_when: "Approval recorded with a date and a capacity slot."
+  - team: ba
+    phase: "Discover"
+    title: "Write the full BRS"
+    hands_over: "Full BRS"
+    to: "Programme manager, for approval"
+    what: "The BA writes the full BRS from the validation session and the blueprint."
+    accepted_when: "Every requirement traces to a validated pain point."
+  - team: programme
+    phase: "Approve and sign"
+    title: "Approve the BRS"
+    hands_over: "Approved BRS"
+    to: "Client, via solution strategy"
+    decision: "APPROVED"
+    what: "The programme manager approves the BRS. Solution strategy reviews it against the blueprint before it goes to the client."
+    accepted_when: "BRS approved, with the solution strategy review recorded."
+  - team: client
+    phase: "Approve and sign"
+    title: "Sign off"
+    hands_over: "Signed BRS and contract"
+    decision: "SIGNED"
+    what: "The client signs the BRS with the contract, so the price matches the confirmed scope."
+    accepted_when: "Both documents signed."
+  - team: strategy
+    phase: "Build"
+    title: "Hand to the PMO"
+    hands_over: "Handover pack"
+    what: "Solution strategy sends the PMO the signed BRS, the blueprint and the MVP definition."
+    accepted_when: "The PMO accepts the pack as complete."
+  - team: pmo
+    phase: "Build"
+    title: "Plan and delegate"
+    hands_over: "Tasks with criteria"
+    what: "The PMO sets dates, assigns people through the tech leads and issues the tasks."
+    accepted_when: "Each task has an owner, a date and acceptance criteria."
+  - team: tech
+    phase: "Build"
+    title: "Build and test"
+    hands_over: "Tested release"
+    to: "Release review"
+    what: "The tech lead leads the developers: technical specification first, then build and test."
+    accepted_when: "Tests pass and the tech lead signs off quality."
+  - team: programme
+    phase: "Release"
+    title: "Release review"
+    hands_over: "Approved release"
+    decision: "RELEASED"
+    what: "Three checks: the tech lead on quality, the BA on BRS coverage, then the programme manager approves the release."
+    accepted_when: "Every BRS requirement is met, or listed as a known gap."
+  - team: strategy
+    phase: "Release"
+    title: "Present to client"
+    hands_over: "Release and results"
+    what: "Solution strategy presents the release and shows the results against the pain points agreed at the start."
+    accepted_when: "Results measured against the success metrics."
+  - team: client
+    phase: "Release"
+    title: "Accept the result"
+    hands_over: "Next-tier decision"
+    to: "Solution strategy, next tier"
+    decision: "ACCEPTED"
+    what: "The client accepts the tier and decides whether to fund the next one."
+    accepted_when: "The client decides: stop, or shape the next tier."
+loops:
+  - from: 5
+    to: 4
+    label: "Re-scope"
+  - from: 14
+    to: 2
+    label: "Next build tier: back to the first pass"
+    show: "end"
+intro:
+  heading: "Each team hands named work to the next"
+  paragraphs:
+    - "Every card is one team's step. The line under its title is what that team hands over. This slip records each handover and when the receiving team accepts it."
+    - "Every decision is signed by the programme manager or by the client."
+summary:
+  heading: "One front door, one channel to engineering"
+  points:
+    - "The account manager keeps the account. Solution strategy shapes the work."
+    - "Solution strategy owns the blueprint. The BA owns the BRS."
+    - "Five decisions: the programme manager approves the blueprint, the BRS and the release; the client signs and accepts."
+    - "The PMO is the only route to the technical teams."
+    - "Each accepted result opens the next build tier."
+  note: "Acceptance tests are proposals, to agree with each team."

@@ -1,0 +1,102 @@
+title: "How a decommissioning plan moves from proposal to retired asset"
+eyebrow: "Oil & Gas · Decommissioning"
+footer:
+  bold: "No works start without a funded, approved plan."
+  text: "The site is verified before the fund is released and the asset is retired."
+teams:
+  - id: operator
+    name: "Operator"
+    note: "Plans and executes the works"
+  - id: technical
+    name: "Engineering and HSE"
+    note: "Reviews and verifies the site"
+  - id: finance
+    name: "Abandonment fund"
+    note: "Holds and releases the funds"
+  - id: management
+    name: "Senior management"
+    note: "Approves the plan"
+  - id: registry
+    name: "Asset registry"
+    note: "System of record for assets"
+steps:
+  - team: operator
+    phase: "Plan"
+    title: "Submit plan"
+    hands_over: "Decommissioning plan"
+    what: "The operator lists the wells and facilities to remove, the method, the schedule and the cost."
+    list:
+      title: "The plan holds"
+      items:
+        - "Asset and well inventory"
+        - "Removal and plugging method"
+        - "Environmental baseline"
+        - "Cost estimate and schedule"
+    accepted_when: "Every asset in scope is listed with a method."
+  - team: technical
+    phase: "Plan"
+    title: "Review method"
+    hands_over: "Engineering and HSE review"
+    what: "Engineering and HSE reviewers check the plugging, removal and environmental methods."
+    accepted_when: "No open critical findings."
+  - team: finance
+    phase: "Plan"
+    title: "Check funding"
+    hands_over: "Funding confirmation"
+    what: "The fund team checks the cost estimate against the abandonment fund balance."
+    accepted_when: "Funding gap, if any, has a closure plan."
+  - team: management
+    phase: "Plan"
+    title: "Approve plan"
+    hands_over: "Approved plan"
+    to: "Operator"
+    decision: "APPROVED"
+    what: "Senior management approves the plan, with conditions, or returns it."
+    accepted_when: "Approval recorded with conditions and a date."
+  - team: operator
+    phase: "Execute"
+    title: "Execute works"
+    hands_over: "Completion report"
+    what: "The operator plugs the wells, removes the facilities and restores the site as approved."
+    accepted_when: "Every asset in scope reported as complete."
+  - team: technical
+    phase: "Execute"
+    title: "Verify site"
+    hands_over: "Site verification"
+    to: "Abandonment fund"
+    decision: "VERIFIED"
+    what: "Reviewers inspect the site and survey results against the approved plan and the environmental baseline."
+    accepted_when: "Site meets the approved end state."
+  - team: finance
+    phase: "Close"
+    title: "Release funds"
+    hands_over: "Fund settlement"
+    what: "The fund team settles the actual cost and releases any remaining balance."
+    accepted_when: "Actual cost reconciled with the estimate."
+  - team: registry
+    phase: "Close"
+    title: "Retire asset"
+    hands_over: "Retired asset record"
+    decision: "RETIRED"
+    what: "The registry marks each asset as retired and keeps the verification record."
+    accepted_when: "Every asset in scope marked retired."
+loops:
+  - from: 4
+    to: 1
+    label: "Returned: revise plan"
+  - from: 6
+    to: 5
+    label: "Rework required"
+intro:
+  heading: "Plan, fund, execute, verify, retire"
+  paragraphs:
+    - "Every card is one team's step. The line under its title is what that team hands over."
+    - "Works only start once the plan is approved and funded."
+summary:
+  heading: "A verified site before any asset is retired"
+  points:
+    - "Engineering, HSE and funding are all checked before approval."
+    - "Verification compares the site with the approved end state."
+    - "Funds are settled only after verification."
+    - "The registry keeps the record once the asset is retired."
+  note: "End-state standards are set by each organisation."

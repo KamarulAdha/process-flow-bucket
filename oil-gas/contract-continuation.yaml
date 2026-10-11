@@ -1,0 +1,170 @@
+title: "How a contract continuation moves from proposal to signed agreement"
+eyebrow: "Oil & Gas · Contract continuation"
+footer:
+  bold: "The counterparty never sees internal steps."
+  text: "Key terms preparation and agreement drafting stay internal. Every other counterparty view is limited."
+
+teams:
+  - id: registry
+    name: "Asset registry"
+    note: "System of record for contract data"
+  - id: ai
+    name: "AI assistant"
+    note: "Extracts, evaluates, drafts"
+  - id: commercial
+    name: "Commercial team"
+    note: "Owns the workflow"
+  - id: reviewers
+    name: "Reviewers"
+    note: "Legal, finance and tax"
+  - id: management
+    name: "Senior management"
+    note: "Issues mandate, endorses"
+  - id: counterparty
+    name: "Counterparty"
+    note: "Contractor and operator, limited access"
+
+steps:
+  - team: registry
+    phase: "Prepare and mandate"
+    title: "Open with data"
+    hands_over: "Locked baseline dataset"
+    what: "The commercial team opens the workflow and links the contract reference. Core contract fields come from the registry; gaps are filled by hand and the baseline is locked."
+    accepted_when: "Baseline locked before proposal work starts; missing fields flagged."
+
+  - team: ai
+    phase: "Prepare and mandate"
+    title: "Evaluate proposal"
+    hands_over: "Economic evaluation"
+    what: "The AI assistant runs the economic evaluation and compares scenarios for the commercial strategy."
+    accepted_when: "Each scenario shows its assumptions and value range."
+
+  - team: commercial
+    phase: "Prepare and mandate"
+    title: "Build proposal"
+    hands_over: "Proposal and document set"
+    to: "Senior management, for mandate"
+    what: "The commercial team builds the commercial strategy from the evaluation."
+    list:
+      title: "Checklist gate before mandate"
+      items:
+        - "Commercial strategy"
+        - "Economic evaluation and scenarios"
+        - "Baseline contract data"
+        - "Every required supporting document"
+    accepted_when: "The document checklist is complete."
+
+  - team: management
+    phase: "Prepare and mandate"
+    title: "Approve mandate"
+    hands_over: "Negotiation mandate"
+    to: "Commercial team"
+    decision: "APPROVED"
+    what: "Two-stage review with legal, finance and tax, then senior management endorses the mandate through the approval system."
+    accepted_when: "Mandate recorded with its limits and a date."
+
+  - team: commercial
+    phase: "Negotiate"
+    title: "Prepare key terms"
+    hands_over: "Negotiating position"
+    what: "Internal only. The team refines the approved terms and aligns internally. The counterparty has no view of this step."
+    accepted_when: "Position stays within the mandate."
+
+  - team: counterparty
+    phase: "Negotiate"
+    title: "Agree key terms"
+    hands_over: "Agreed key terms"
+    to: "Commercial team"
+    decision: "AGREED"
+    what: "Multi-round negotiation, every round versioned in an audit log. The team checks the final terms against the mandate, the AI assistant analyses the value impact, and the counterparty concurs."
+    accepted_when: "Terms sit within the mandate, or the breach is escalated."
+
+  - team: ai
+    phase: "Memo"
+    title: "Draft memo"
+    hands_over: "Draft memo"
+    to: "Commercial team, then reviewers"
+    what: "The AI assistant generates a first draft. The commercial team co-authors it with live track changes."
+    accepted_when: "Draft covers the agreed terms and the value impact."
+
+  - team: reviewers
+    phase: "Memo"
+    title: "Review memo"
+    hands_over: "Reviewed memo"
+    what: "Legal, finance and tax review the memo and record their endorsements."
+    accepted_when: "Every reviewer endorsement recorded."
+
+  - team: management
+    phase: "Memo"
+    title: "Finalise memo"
+    hands_over: "Endorsed memo"
+    to: "Commercial team"
+    decision: "ENDORSED"
+    what: "Executive sign-off through the approval system."
+    accepted_when: "Sign-off recorded with a date."
+
+  - team: commercial
+    phase: "Award"
+    title: "Prepare letter"
+    hands_over: "Draft letter of award"
+    what: "The AI assistant fills the letter of award template. The team sets the conditions precedent. The counterparty gets limited review."
+    accepted_when: "Conditions precedent listed and template fields complete."
+
+  - team: counterparty
+    phase: "Award"
+    title: "Sign letter"
+    hands_over: "Signed letter of award"
+    to: "Commercial team"
+    decision: "SIGNED"
+    what: "The counterparty counter-signs. Senior management endorses through the approval system. A tracker shows signing progress."
+    accepted_when: "All signatures in place."
+
+  - team: commercial
+    phase: "Agreement"
+    title: "Draft agreement"
+    hands_over: "Draft definitive agreement"
+    what: "Internal only. The AI assistant generates the agreement and tracks changes against the agreed terms. The counterparty has no view of this step."
+    accepted_when: "Every agreed term appears in the draft."
+
+  - team: counterparty
+    phase: "Agreement"
+    title: "Negotiate agreement"
+    hands_over: "Final agreement text"
+    to: "Commercial team"
+    what: "Markups go back and forth in rounds, with full version and diff history."
+    accepted_when: "No open markups."
+
+  - team: registry
+    phase: "Close"
+    title: "Sign and register"
+    hands_over: "Registered agreement"
+    decision: "COMPLETE"
+    what: "The team assigns signatories and tracks signing on both sides, then submits the signed agreement to the registry."
+    accepted_when: "Agreement signed by both parties and recorded in the registry."
+
+loops:
+  - from: 4
+    to: 3
+    label: "Checklist incomplete"
+  - from: 6
+    to: 4
+    label: "Mandate breach: escalate"
+  - from: 13
+    to: 12
+    label: "Next markup round"
+
+intro:
+  heading: "Each step hands named work to the next"
+  paragraphs:
+    - "Every card is one team's step. The line under its title is what that team hands over. This slip records each handover and when the receiving team accepts it."
+    - "Two gates stop the flow: the document checklist before the mandate, and the mandate check before drafting."
+
+summary:
+  heading: "One owner, two gates, two internal-only steps"
+  points:
+    - "The commercial team owns the workflow from start to registration."
+    - "Senior management sets the mandate and endorses the memo and letter of award."
+    - "Terms outside the mandate go back for escalation before any drafting."
+    - "The counterparty never sees key terms preparation or agreement drafting."
+    - "The AI assistant evaluates and drafts; people decide and sign."
+  note: "Approvals run through the approval system once it is connected; an in-app approval covers it until then."

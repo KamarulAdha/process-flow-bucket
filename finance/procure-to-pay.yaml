@@ -1,0 +1,93 @@
+title: "How a purchase moves from request to payment"
+eyebrow: "Finance and procurement · Procure to pay"
+footer:
+  bold: "No payment without a three-way match."
+  text: "The order, the receipt and the invoice must agree before the supplier is paid."
+teams:
+  - id: requester
+    name: "Requesting team"
+    note: "Needs the goods or service"
+  - id: budget
+    name: "Budget owner"
+    note: "Approves the spend"
+  - id: procurement
+    name: "Procurement"
+    note: "Sources and orders"
+  - id: ap
+    name: "Accounts payable"
+    note: "Matches and pays"
+  - id: supplier
+    name: "Supplier"
+    note: "Delivers and invoices"
+steps:
+  - team: requester
+    phase: "Request"
+    title: "Raise requisition"
+    hands_over: "Purchase requisition"
+    what: "The team states what it needs, the quantity, the date and the cost centre."
+    accepted_when: "Requisition has a cost centre and an estimate."
+  - team: budget
+    phase: "Request"
+    title: "Approve spend"
+    hands_over: "Approved requisition"
+    decision: "APPROVED"
+    what: "The budget owner confirms the need and the available budget."
+    accepted_when: "Approval within the owner's authority limit."
+  - team: procurement
+    phase: "Request"
+    title: "Source supplier"
+    hands_over: "Selected supplier"
+    what: "Procurement uses a contracted supplier, or runs quotes when there is none."
+    accepted_when: "Supplier selected on price, quality and terms."
+  - team: procurement
+    phase: "Order"
+    title: "Issue order"
+    hands_over: "Purchase order"
+    what: "Procurement issues the purchase order with price, quantity and delivery terms."
+    accepted_when: "Supplier acknowledges the order."
+  - team: supplier
+    phase: "Order"
+    title: "Deliver and invoice"
+    hands_over: "Goods and invoice"
+    to: "Requesting team and accounts payable"
+    what: "The supplier delivers against the order and sends an invoice."
+    accepted_when: "Invoice quotes the order number."
+  - team: requester
+    phase: "Pay"
+    title: "Confirm receipt"
+    hands_over: "Goods receipt"
+    what: "The requesting team confirms what arrived and its condition."
+    accepted_when: "Receipt recorded against the order lines."
+  - team: ap
+    phase: "Pay"
+    title: "Match invoice"
+    hands_over: "Matched invoice"
+    what: "Accounts payable matches the order, the receipt and the invoice."
+    accepted_when: "All three agree within tolerance."
+  - team: supplier
+    phase: "Pay"
+    title: "Receive payment"
+    hands_over: "Payment"
+    decision: "PAID"
+    what: "Accounts payable pays the supplier on the agreed terms."
+    accepted_when: "Payment made on time and recorded."
+loops:
+  - from: 2
+    to: 1
+    label: "Rejected: revise"
+  - from: 7
+    to: 5
+    label: "Mismatch: query supplier"
+intro:
+  heading: "Approve, order, receive, match, pay"
+  paragraphs:
+    - "Every card is one team's step. The line under its title is what that team hands over."
+    - "Spend is approved before the order, and the invoice is matched before payment."
+summary:
+  heading: "Three documents agree before money moves"
+  points:
+    - "The budget owner approves spend before anything is ordered."
+    - "Procurement is the only route to suppliers."
+    - "The requesting team confirms receipt, not accounts payable."
+    - "Payment follows a three-way match."
+  note: "Authority limits and tolerances are set by each organisation."

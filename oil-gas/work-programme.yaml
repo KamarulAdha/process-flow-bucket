@@ -1,0 +1,114 @@
+title: "How a work programme and budget moves from proposal to year-end close"
+eyebrow: "Oil & Gas · Work programme and budget"
+footer:
+  bold: "Spend follows an endorsed budget."
+  text: "Changes go through a formal revision, never through overspend."
+teams:
+  - id: operator
+    name: "Operator"
+    note: "Plans the work and spends"
+  - id: technical
+    name: "Technical review"
+    note: "Checks the activities"
+  - id: finance
+    name: "Cost and budget review"
+    note: "Checks costs and variance"
+  - id: management
+    name: "Senior management"
+    note: "Endorses budget and revisions"
+  - id: registry
+    name: "Asset registry"
+    note: "System of record for actuals"
+steps:
+  - team: operator
+    phase: "Plan"
+    title: "Submit programme"
+    hands_over: "Work programme and budget"
+    what: "The operator proposes next year's activities, with a cost for each: wells, maintenance, studies and projects."
+    accepted_when: "Every activity has a cost, a schedule and a reason."
+  - team: technical
+    phase: "Plan"
+    title: "Review activities"
+    hands_over: "Activity review"
+    what: "Reviewers confirm each activity is needed and fits the approved development plan."
+    accepted_when: "Each activity marked accepted, deferred or rejected."
+  - team: finance
+    phase: "Plan"
+    title: "Review costs"
+    hands_over: "Cost review"
+    what: "Cost reviewers benchmark rates and check the budget against the accepted activities."
+    accepted_when: "Every cost line traces to an accepted activity."
+  - team: management
+    phase: "Plan"
+    title: "Endorse budget"
+    hands_over: "Endorsed budget"
+    to: "Operator"
+    decision: "ENDORSED"
+    what: "Senior management endorses the programme and budget for the year."
+    accepted_when: "Endorsed budget recorded as the baseline."
+  - team: operator
+    phase: "Track"
+    title: "Report spend"
+    hands_over: "Quarterly cost report"
+    what: "Each quarter the operator reports progress and actual spend against the baseline."
+    accepted_when: "Report covers every budget line."
+  - team: finance
+    phase: "Track"
+    title: "Monitor variance"
+    hands_over: "Variance findings"
+    to: "Operator"
+    what: "Cost reviewers flag lines over the variance threshold."
+    accepted_when: "Every flagged line has an explanation."
+  - team: operator
+    phase: "Revise"
+    title: "Request revision"
+    hands_over: "Revision request"
+    what: "When scope or cost must change, the operator requests a formal revision."
+    accepted_when: "Request states the change, the cost and the reason."
+  - team: finance
+    phase: "Revise"
+    title: "Review revision"
+    hands_over: "Revision assessment"
+    what: "Cost reviewers check the revised costs and the impact on the year."
+    accepted_when: "Impact stated against the endorsed baseline."
+  - team: management
+    phase: "Revise"
+    title: "Approve revision"
+    hands_over: "Revised budget"
+    to: "Cost and budget review, for close"
+    decision: "APPROVED"
+    what: "Senior management approves the revision, which becomes the new baseline."
+    accepted_when: "New baseline recorded with a date."
+  - team: finance
+    phase: "Close"
+    title: "Close the year"
+    hands_over: "Reconciled actuals"
+    what: "Cost reviewers reconcile final actuals with the baseline."
+    accepted_when: "All lines reconciled; open items listed."
+  - team: registry
+    phase: "Close"
+    title: "Record actuals"
+    hands_over: "Year-end record"
+    decision: "CLOSED"
+    what: "Reconciled actuals go into the registry and seed next year's plan."
+    accepted_when: "Actuals recorded and available for next year."
+loops:
+  - from: 4
+    to: 1
+    label: "Not endorsed: revise"
+  - from: 6
+    to: 5
+    label: "Next quarter"
+intro:
+  heading: "One endorsed baseline, tracked every quarter"
+  paragraphs:
+    - "Every card is one team's step. The line under its title is what that team hands over."
+    - "Spend is tracked against the endorsed baseline. Any change goes through a formal revision."
+summary:
+  heading: "Plan, track, revise, close"
+  points:
+    - "Technical and cost reviews both run before endorsement."
+    - "Quarterly reports keep variance visible early."
+    - "A revision replaces the baseline; overspend never does."
+    - "Year-end actuals feed next year's programme."
+  note: "Variance thresholds are set by each organisation."
